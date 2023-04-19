@@ -7,7 +7,7 @@ resource "aws_key_pair" "main" {
 resource "aws_instance" "web_servers" {
   tags                   = local.tags
   count                  = var.web_server_count
-  ami                    = var.aws_ubuntu_ami
+  ami                    = var.aws_ami
   instance_type          = "t3.micro"
   subnet_id              = aws_subnet.public[count.index].id
   key_name               = aws_key_pair.main.key_name

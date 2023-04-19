@@ -16,19 +16,17 @@ variable "app_domain" {
 variable "web_app_port" {
   type        = number
   description = "Port number for web application"
-  default     = 8080
 }
 
 variable "api_app_port" {
   type        = number
   description = "Port number for API application"
-  default     = 8000
 }
 
-# https://cloud-images.ubuntu.com/locator/ec2/
-variable "aws_ubuntu_ami" {
+# Example: https://cloud-images.ubuntu.com/locator/ec2/
+variable "aws_ami" {
   type        = string
-  description = "AWS Ubuntu AMI for specified region"
+  description = "AWS AMI for specified region"
 }
 
 variable "vpc_cidr_block" {
@@ -90,7 +88,7 @@ variable "web_server_count" {
 
 variable "web_server_public_key" {
   type        = string
-  description = "Web server SSH public key"
+  description = "SSH public key for the web servers"
 }
 
 variable "cloudwatch_alarms" {
