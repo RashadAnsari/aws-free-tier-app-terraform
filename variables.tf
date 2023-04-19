@@ -25,11 +25,6 @@ variable "api_app_port" {
   default     = 8000
 }
 
-variable "aws_region" {
-  type        = string
-  description = "AWS region"
-}
-
 # https://cloud-images.ubuntu.com/locator/ec2/
 variable "aws_ubuntu_ami" {
   type        = string
