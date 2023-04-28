@@ -109,10 +109,10 @@ module "alb" {
     },
   ]
 
-  tags                      = local.tags
-  lb_tags                   = local.tags
-  target_group_tags         = local.tags
-  https_listener_rules_tags = local.tags
-  https_listeners_tags      = local.tags
-  http_tcp_listeners_tags   = local.tags
+  tags                      = var.tags
+  lb_tags                   = var.tags
+  target_group_tags         = var.tags
+  https_listener_rules_tags = var.tags
+  https_listeners_tags      = var.tags
+  http_tcp_listeners_tags   = var.tags
 }

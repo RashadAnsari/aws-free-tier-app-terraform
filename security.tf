@@ -1,5 +1,5 @@
 resource "aws_security_group" "ec2" {
-  tags   = local.tags
+  tags   = var.tags
   vpc_id = aws_vpc.main.id
   name   = "ec2-${var.app_env}"
 
@@ -34,7 +34,7 @@ resource "aws_security_group" "ec2" {
 
 
 resource "aws_security_group" "db" {
-  tags   = local.tags
+  tags   = var.tags
   vpc_id = aws_vpc.main.id
   name   = "db-${var.app_env}"
 
@@ -47,7 +47,7 @@ resource "aws_security_group" "db" {
 }
 
 resource "aws_security_group" "alb" {
-  tags   = local.tags
+  tags   = var.tags
   vpc_id = aws_vpc.main.id
   name   = "alb-${var.app_env}"
 

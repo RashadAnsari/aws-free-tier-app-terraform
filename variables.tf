@@ -1,6 +1,7 @@
-variable "app_name" {
-  type        = string
-  description = "Application name"
+variable "tags" {
+  type        = map(string)
+  description = "Resource tags"
+  default     = {}
 }
 
 variable "app_env" {

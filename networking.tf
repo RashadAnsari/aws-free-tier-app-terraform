@@ -1,16 +1,16 @@
 resource "aws_vpc" "main" {
-  tags                 = local.tags
+  tags                 = var.tags
   cidr_block           = var.vpc_cidr_block
   enable_dns_hostnames = true
 }
 
 resource "aws_internet_gateway" "main" {
-  tags   = local.tags
+  tags   = var.tags
   vpc_id = aws_vpc.main.id
 }
 
 resource "aws_subnet" "public" {
-  tags              = local.tags
+  tags              = var.tags
   vpc_id            = aws_vpc.main.id
   count             = var.public_subnet_count
   cidr_block        = var.public_subnet_cidr_blocks[count.index]
@@ -18,7 +18,7 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_subnet" "private" {
-  tags              = local.tags
+  tags              = var.tags
   vpc_id            = aws_vpc.main.id
   count             = var.private_subnet_count
   cidr_block        = var.private_subnet_cidr_blocks[count.index]
@@ -26,7 +26,7 @@ resource "aws_subnet" "private" {
 }
 
 resource "aws_route_table" "public" {
-  tags   = local.tags
+  tags   = var.tags
   vpc_id = aws_vpc.main.id
 
   route {
@@ -42,7 +42,7 @@ resource "aws_route_table_association" "public" {
 }
 
 resource "aws_route_table" "private" {
-  tags   = local.tags
+  tags   = var.tags
   vpc_id = aws_vpc.main.id
 }
 

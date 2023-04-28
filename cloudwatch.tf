@@ -1,14 +1,14 @@
 resource "aws_sns_topic" "cloudwatch_alarms" {
   count = var.cloudwatch_alarms ? 1 : 0
 
-  tags = local.tags
+  tags = var.tags
   name = "cloudwatch-alarms"
 }
 
 resource "aws_cloudwatch_metric_alarm" "ec2_cpu_utilization" {
   count = var.cloudwatch_alarms ? var.web_server_count : 0
 
-  tags                = local.tags
+  tags                = var.tags
   alarm_name          = "ec2-cpu-utilization"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 2

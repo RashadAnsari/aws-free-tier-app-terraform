@@ -2,7 +2,7 @@ module "acm" {
   source  = "terraform-aws-modules/acm/aws"
   version = "4.3.2"
 
-  tags                      = local.tags
+  tags                      = var.tags
   domain_name               = var.app_domain
   zone_id                   = data.cloudflare_zone.main.id
   subject_alternative_names = ["*.${var.app_domain}"]

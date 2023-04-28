@@ -1,11 +1,11 @@
 resource "aws_key_pair" "main" {
-  tags       = local.tags
+  tags       = var.tags
   key_name   = "ssh-${var.app_env}"
   public_key = var.web_server_public_key
 }
 
 resource "aws_instance" "web_servers" {
-  tags                   = local.tags
+  tags                   = var.tags
   count                  = var.web_server_count
   ami                    = var.aws_ami
   instance_type          = "t3.micro"
@@ -19,7 +19,7 @@ resource "aws_instance" "web_servers" {
 }
 
 resource "aws_eip" "web_server_eips" {
-  tags     = local.tags
+  tags     = var.tags
   count    = var.web_server_count
   instance = aws_instance.web_servers[count.index].id
   vpc      = true

@@ -1,11 +1,11 @@
 resource "aws_db_subnet_group" "main" {
-  tags       = local.tags
+  tags       = var.tags
   name       = "db-${var.app_env}"
   subnet_ids = aws_subnet.private.*.id
 }
 
 resource "aws_db_instance" "db" {
-  tags                    = local.tags
+  tags                    = var.tags
   db_name                 = "db_${var.app_env}"
   identifier              = "db-${var.app_env}"
   allocated_storage       = 10

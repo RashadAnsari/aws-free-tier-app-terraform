@@ -8,9 +8,9 @@ AWS free tier app Terraform module.
 
 ```hcl
 module "app" {
-  source = "git::https://github.com/RashadAnsari/aws-free-tier-app-terraform.git?ref=v1.0.4"
+  source = "git::https://github.com/RashadAnsari/aws-free-tier-app-terraform.git?ref=v1.0.5"
 
-  app_name              = "AppName"
+  tags                  = {}
   app_env               = "production"
   app_domain            = "app.io"
   web_app_port          = 8080
